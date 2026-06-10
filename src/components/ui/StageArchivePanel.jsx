@@ -1,7 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useStageStore } from '../../store/stageStore.js';
 
-const BACKEND_URL = 'http://localhost:8080/api/stage';
+const DEFAULT_STAGE_API_URL = 'http://localhost:8080/api/stage';
+const BACKEND_URL = (
+  import.meta.env.VITE_STAGE_API_URL ??
+  import.meta.env.VITE_BACKEND_URL ??
+  DEFAULT_STAGE_API_URL
+).replace(/\/+$/, '');
 
 function hasChoreographyContent(choreographyData) {
   if (!choreographyData) return false;

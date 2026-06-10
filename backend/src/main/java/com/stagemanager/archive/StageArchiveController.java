@@ -9,7 +9,6 @@ import java.util.Locale;
 import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +22,6 @@ import tools.jackson.databind.node.ObjectNode;
 
 @RestController
 @RequestMapping("/api/stage")
-@CrossOrigin(originPatterns = {"http://localhost:*", "http://127.0.0.1:*"})
 public class StageArchiveController {
 
 	private final ObjectMapper objectMapper;

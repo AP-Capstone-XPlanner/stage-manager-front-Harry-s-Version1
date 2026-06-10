@@ -1,0 +1,5 @@
+target/
+stage-archives/
+.mvn/wrapper/maven-wrapper.jar
+.DS_Store
+*.log
