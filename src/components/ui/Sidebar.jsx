@@ -12,6 +12,8 @@ import { GroundColorPicker } from './GroundColorPicker.jsx';
 import { SkyColorPicker } from './SkyColorPicker.jsx';
 import { StageTexturePicker } from './StageTexturePicker.jsx';
 import { StageEnclosurePicker } from './StageEnclosurePicker.jsx';
+import { StageArchivePanel } from './StageArchivePanel.jsx';
+import { CustomPlatformPanel } from './CustomPlatformPanel.jsx';
 
 export function Sidebar() {
   const stage = useStageStore((s) => s.stage);
@@ -162,7 +164,7 @@ export function Sidebar() {
             <label className="toggle stage-toggle">
               <input type="checkbox" checked={showStageEnclosure}
                 onChange={(e) => setShowStageEnclosure(e.target.checked)} />
-              Stage walls
+              Transparent walls
             </label>
             {showStageEnclosure && (
               <>
@@ -178,6 +180,8 @@ export function Sidebar() {
       </section>
 
       <PropList />
+      <StageArchivePanel />
+      <CustomPlatformPanel />
 
       <section className="panel">
         <div className="panel-title-row">

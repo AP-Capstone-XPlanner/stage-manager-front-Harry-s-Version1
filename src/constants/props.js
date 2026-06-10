@@ -5,9 +5,9 @@
 import { getPropLabel } from '../utils/propLabelMap.js';
 
 export const STAGE_LIMITS = Object.freeze({
-  length: { min: 4, max: 30 },
-  width: { min: 4, max: 30 },
-  height: { min: 0.2, max: 8 },
+  length: { min: 1, max: 100 },
+  width: { min: 1, max: 100 },
+  height: { min: 0, max: 20 },
 });
 
 export const GRID_SNAP = 0.25;

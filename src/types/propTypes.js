@@ -1,7 +1,7 @@
 /**
  * @file Prop type definitions (JavaScript — JSDoc for IDE hints).
  *
- * @typedef {'dark_wood'|'light_wood'|'matte_black'} StageTexture
+ * @typedef {'dark_wood'|'light_wood'|'matte_black'|'cheer_mats'} StageTexture
  * @typedef {'select'|'place'} EditorMode
  */
 
@@ -81,5 +81,10 @@ export const PROPTYPES = Object.freeze({
  * @property {number} height
  */
 
-export const STAGE_TEXTURES = Object.freeze(['dark_wood', 'light_wood', 'matte_black']);
+export const STAGE_TEXTURES = Object.freeze([
+  'dark_wood',
+  'light_wood',
+  'matte_black',
+  'cheer_mats',
+]);
 export const EDITOR_MODES = Object.freeze(['select', 'place']);

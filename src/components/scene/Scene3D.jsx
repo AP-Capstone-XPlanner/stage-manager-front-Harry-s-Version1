@@ -14,12 +14,16 @@ import { DefaultCamera } from './DefaultCamera.jsx';
 import { StageZoneGuides } from './StageZoneGuides.jsx';
 import { StageEnclosure } from './StageEnclosure.jsx';
 import { KeyboardShortcutsBridge } from './KeyboardShortcutsBridge.jsx';
+import { CustomPlatforms } from './CustomPlatforms.jsx';
+import { StageShapeDrawLayer } from './StageShapeDrawLayer.jsx';
 import { handleGlobalKeyDown } from '../../utils/globalKeyboard.js';
+import { CUSTOM_PLATFORM_LIMITS } from '../../utils/customPlatforms.js';
 
 function SceneContent() {
   const controlsRef = useRef(null);
   const stage = useStageStore((s) => s.stage);
   const maxExtent = Math.max(stage.length, stage.width) + 8;
+  const gridSize = Math.max(80, CUSTOM_PLATFORM_LIMITS.workspaceHalfExtent * 2);
   const orbitTarget = useMemo(
     () => [0, useStageStore.getState().stage.height + 0.5, 0],
     [],
@@ -44,19 +48,21 @@ function SceneContent() {
       />
       <directionalLight position={[-8, 10, -6]} intensity={0.35} />
       <Grid
-        args={[80, 80]}
+        args={[gridSize, gridSize]}
         cellSize={FLOOR_GRID.cellSize}
         cellThickness={FLOOR_GRID.cellThickness}
         sectionSize={FLOOR_GRID.sectionSize}
         sectionThickness={FLOOR_GRID.sectionThickness}
-        fadeDistance={50}
+        fadeDistance={gridSize * 0.6}
         position={[0, 0.001, 0]}
         cellColor={FLOOR_GRID.cellColor}
         sectionColor={FLOOR_GRID.sectionColor}
       />
       <SceneFloor />
       <StagePlatform />
+      <StageShapeDrawLayer />
       <StageGuides />
+      <CustomPlatforms />
       <PlacedProps />
       <StageZoneGuides />
       <StageEnclosure />
@@ -82,7 +88,7 @@ export function Scene3D() {
     <Canvas
       tabIndex={-1}
       style={{ width: '100%', height: '100%', display: 'block', outline: 'none' }}
-      camera={{ position: [2, 8, 18], fov: 45, near: 0.1, far: 200 }}
+      camera={{ position: [2, 8, 18], fov: 45, near: 0.1, far: 500 }}
       gl={{ antialias: true }}
       onPointerDown={(e) => e.currentTarget.focus()}
       onKeyDown={(e) => handleGlobalKeyDown(e.nativeEvent)}

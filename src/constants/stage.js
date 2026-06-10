@@ -37,6 +37,7 @@ export const STAGE_TEXTURE_OPTIONS = Object.freeze([
   { id: 'dark_wood', label: 'Dark hardwood' },
   { id: 'light_wood', label: 'Light hardwood' },
   { id: 'matte_black', label: 'Matte black (PVC)' },
+  { id: 'cheer_mats', label: 'Cheer Mats' },
 ]);
 
 export const STAGE_SURFACE_COLORS = Object.freeze({
@@ -58,6 +59,12 @@ export const STAGE_SURFACE_COLORS = Object.freeze({
     roughness: 0.92,
     metalness: 0.04,
   },
+  cheer_mats: {
+    body: '#4a6fa5',
+    edge: '#5a80b0',
+    roughness: 0.75,
+    metalness: 0.03,
+  },
 });
 
 export const CENTER_BASELINE_COLOR = '#38bdf8';
@@ -76,6 +83,11 @@ export const STAGE_GUIDE_PALETTES = Object.freeze({
   matte_black: {
     zone: { line: '#fbbf24', text: '#fef9c3' },
     grid: { line: '#b8c9e0', opacity: 0.72, lineWidth: 1.15 },
+    enclosure: { fill: '#fcd34d', edge: '#fef08a', opacity: 0.2 },
+  },
+  cheer_mats: {
+    zone: { line: '#fbbf24', text: '#fef9c3' },
+    grid: { line: '#cbd5e1', opacity: 0.78, lineWidth: 1.2 },
     enclosure: { fill: '#fcd34d', edge: '#fef08a', opacity: 0.2 },
   },
 });
